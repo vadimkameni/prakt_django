@@ -1,0 +1,18 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+Товары
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Создать товар</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Наименование</label>
+        {{ form.title }}<br>
+      <button type="submit" class="btn btn-success" style="background-color: #621F1F;">Отправить</button>
+      <span>{{ error }}</span>
+    </form>
+</div>
+{% endblock %}

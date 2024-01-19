@@ -1,0 +1,28 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+Товары
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Создать заказ</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Номер заказа</label>
+        {{ form.order_number }}<br>
+        <label>Дата заказа</label>
+        {{ form.order_date }}<br>
+        <label>Товар</label>
+        {{ form.prod }}<br>
+        <label>Клиент</label>
+        {{ form.cust }}<br>
+        <label>Количество</label>
+        {{ form.quantity }}<br>
+        <label>Цена</label>
+        {{ form.price }}<br>
+      <button type="submit" class="btn btn-success" style="background-color: #621F1F;">Отправить</button>
+      <span>{{ error }}</span>
+    </form>
+</div>
+{% endblock %}

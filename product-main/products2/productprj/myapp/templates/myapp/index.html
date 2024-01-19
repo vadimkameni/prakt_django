@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+
+{% block content %}
+<div class="container p-3 border">
+    <h4>Активные записи</h4>
+    {% if orders_all %}
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Номер</th>
+        <th>Дата</th>
+        <th>Товар</th>
+        <th>Клиент</th>
+        <th>Количество</th>
+        <th>Цена</th>
+      </tr>
+    </thead>
+        <tbody>
+        {% for elem in orders_all %}
+            <tr>
+                <td>{{ elem.order_number }}</td>
+                <td>{{ elem.order_date }}</td>
+                <td>{{ elem.prod }}</td>
+                <td>{{ elem.cust }}</td>
+                <td>{{ elem.quantity }}</td>
+                <td>{{ elem.price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>У нас нет записей</p>
+    {% endif %}
+</div>
+{% endblock %}

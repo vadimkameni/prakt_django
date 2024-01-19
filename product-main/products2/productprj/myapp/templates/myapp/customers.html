@@ -1,0 +1,36 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+Список клиентов
+{% endblock %}
+
+
+{% block content %}
+<div class="container p-3 border">
+    <h4>Активные записи</h4>
+    {% if cust_all %}
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Телефон</th>
+        <th>Почта</th>
+      </tr>
+    </thead>
+        <tbody>
+        {% for elem in cust_all %}
+            <tr>
+                <td>{{ elem.name }}</td>
+                <td>{{ elem.surname }}</td>
+                <td>{{ elem.phone }}</td>
+                <td>{{ elem.email }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>У нас нет записей</p>
+    {% endif %}
+</div>
+{% endblock %}
